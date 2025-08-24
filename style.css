@@ -1,46 +1,46 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #ffb6c1; /* Cute solid pink background */
+  background: linear-gradient(to bottom, #ffb6c1, #ffd6e0); /* soft pink fade */
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   text-align: center;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
 }
 
-/* Floating hearts background */
+/* Floating fading hearts (sad vibe, slower) */
 body::before {
-  content: "💖 💕 💗 💓 💞 💕 💘";
+  content: "💔 💕 💗 💔 💞 💕 💘";
   position: fixed;
   top: -50px;
   left: 0;
   width: 100%;
   font-size: 2rem;
   text-align: center;
-  animation: floatHearts 10s linear infinite;
-  opacity: 0.6;
+  animation: floatHearts 15s linear infinite;
+  opacity: 0.4;
   pointer-events: none;
 }
 body::after {
-  content: "💖 💕 💗 💓 💞 💕 💘";
+  content: "💔 💕 💗 💔 💞 💕 💘";
   position: fixed;
   top: -100px;
   left: 0;
   width: 100%;
   font-size: 1.5rem;
   text-align: center;
-  animation: floatHearts 15s linear infinite;
-  opacity: 0.4;
+  animation: floatHearts 20s linear infinite;
+  opacity: 0.2;
   pointer-events: none;
 }
 
 @keyframes floatHearts {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(120vh); }
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(120vh); opacity: 0; }
 }
 
 .title {
@@ -48,11 +48,11 @@ body::after {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #fff;
-  text-shadow: 0 0 12px rgba(255, 77, 109, 0.8);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 
 .card {
-  background: #fff;
+  background: rgba(255,255,255,0.9);
   color: #333;
   border-radius: 15px;
   padding: 20px;
@@ -69,7 +69,7 @@ body::after {
 
 button {
   margin-top: 15px;
-  background: #ff4d6d;
+  background: #c94f7c; /* darker pink (sad vibe) */
   border: none;
   padding: 12px 20px;
   font-size: 1rem;
@@ -78,13 +78,13 @@ button {
   cursor: pointer;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  box-shadow: 0 5px 15px rgba(255,77,109,0.5);
+  box-shadow: 0 5px 15px rgba(201,79,124,0.5);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(255,77,109,0.7);
+  box-shadow: 0 8px 20px rgba(201,79,124,0.7);
 }
 
 .overlay {
@@ -93,7 +93,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255,182,193,0.95); /* light pink overlay */
+  background: rgba(50,0,30,0.8); /* darker, sad overlay */
   display: none;
   justify-content: center;
   align-items: center;
@@ -108,7 +108,7 @@ button:hover {
 }
 
 .letter {
-  background: #fff;
+  background: rgba(255,255,255,0.95);
   padding: 25px;
   border-radius: 15px;
   text-align: left;
@@ -117,36 +117,35 @@ button:hover {
   color: #333;
   font-size: 1.1rem;
   line-height: 1.6;
-  animation: popUp 0.8s ease forwards;
-  overflow-y: auto; /* enable scroll on mobile */
-  max-height: 80vh; /* make sure visible */
+  animation: fadeIn 1.5s ease forwards;
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .letter h2 {
   font-family: 'Dancing Script', cursive;
-  color: #ff4d6d;
+  color: #c94f7c;
   margin-bottom: 10px;
   font-size: 1.8rem;
   text-align: center;
 }
 
-@keyframes popUp {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .closeBtn {
   margin-top: 20px;
-  background: #ff4d6d;
+  background: #c94f7c;
   color: #fff;
   font-size: 1.2rem;
   padding: 12px 25px;
   border-radius: 30px;
-  box-shadow: 0 5px 15px rgba(255,77,109,0.5);
+  box-shadow: 0 5px 15px rgba(201,79,124,0.5);
   cursor: pointer;
 }
 
-/* Mobile fix */
 @media (max-width: 600px) {
   .title {
     font-size: 2rem;
@@ -157,6 +156,6 @@ button:hover {
   .letter {
     font-size: 1rem;
     padding: 20px;
-    max-height: 75vh; /* prevent cutting on small screens */
+    max-height: 75vh;
   }
 }
