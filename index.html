@@ -3,33 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Apology to You ❤️</title>
+  <title>Stay With Me</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Floating hearts background -->
   <div class="hearts"></div>
-  <div class="container">
-    <h1 class="title">I’m Sorry ❤️</h1>
-    <div class="card">
-      <p>No matter what happens, I just want you in my life — as my love, or at least as my friend. Please stay with me.</p>
-      <button id="surpriseBtn">Surprise 💌</button>
+
+  <!-- Surprise button -->
+  <button class="surprise-btn">Surprise 💌</button>
+
+  <!-- Modal -->
+  <div class="surprise-modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="letter">
+        <h2>For You...</h2>
+        <p>
+          Sometimes I feel like I’m not enough… and I get scared that one day you’ll walk away.  
+          But the truth is, you mean more to me than I can ever explain.  
+        </p>
+        <p>
+          I don’t need anything fancy, I just need you.  
+          Even when things are hard, even when I mess up…  
+          I still want you here, by my side.  
+        </p>
+        <p>
+          Please don’t let go of me.  
+          Stay… even if it’s messy, even if it’s not perfect.  
+          Because losing you would be the saddest thing I could ever face.  
+        </p>
+        <p class="signature">— I just want you to stay —</p>
+      </div>
     </div>
   </div>
 
-  <div class="overlay" id="overlay">
-    <div class="letter">
-      <h2>To You 💖</h2>
-      <p>
-        I’m sorry for everything.  
-        What I really wish is simple:  
-        Stay with me — as my partner, or as my best friend.  
-        You are too precious to lose. 💕
-      </p>
-    </div>
-    <button class="closeBtn" id="closeBtn">Close ✨</button>
-  </div>
-
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
