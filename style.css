@@ -1,13 +1,20 @@
-body {
+/* General reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body setup */
+body {
   font-family: 'Dancing Script', cursive;
-  background: #ffb6c1;
-  height: 100vh;
+  background: linear-gradient(to bottom, #ffafbd, #ffc3a0);
+  overflow-x: hidden;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  flex-direction: column;
 }
 
 /* Floating hearts */
@@ -17,80 +24,75 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
   overflow: hidden;
-  z-index: -1;
-  background: linear-gradient(to bottom, #ffc1cc, #ffdde1);
+  z-index: 1;
 }
 
 .heart {
   position: absolute;
-  color: rgba(255, 105, 180, 0.7);
+  bottom: -20px;
+  color: pink;
   font-size: 20px;
+  opacity: 0.7;
   animation: floatUp 6s linear infinite;
 }
 
 @keyframes floatUp {
-  from {
-    transform: translateY(100vh) scale(1);
-    opacity: 1;
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
   }
-  to {
-    transform: translateY(-10vh) scale(1.5);
+  100% {
+    transform: translateY(-100vh) scale(1.3);
     opacity: 0;
   }
 }
 
-/* Surprise button */
+/* Button */
 .surprise-btn {
+  z-index: 2;
   padding: 15px 30px;
-  font-size: 24px;
-  font-family: 'Dancing Script', cursive;
-  color: white;
-  background: #e75480;
+  font-size: 1.2rem;
   border: none;
   border-radius: 12px;
+  background-color: #e75480;
+  color: white;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 2;
-  position: relative;
+  font-family: 'Dancing Script', cursive;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.3s;
 }
 
 .surprise-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+  background-color: #d64571;
 }
 
-/* Modal */
+/* Modal setup */
 .surprise-modal {
   display: none;
   position: fixed;
-  top: 0;
+  z-index: 3;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
 }
 
 .modal-content {
-  background: #fff0f5;
-  padding: 25px;
+  background: #fff;
   border-radius: 15px;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
   text-align: center;
-  max-width: 500px;
-  width: 100%;
-  font-size: 20px;
-  color: #333;
-  border: 2px solid #e75480;
-  font-family: 'Dancing Script', cursive;
-  line-height: 1.6;
-  animation: fadeIn 1s ease;
   position: relative;
-  max-height: 90vh;   /* fit into mobile */
-  overflow-y: auto;   /* scroll if text too long */
+  animation: fadeIn 0.6s ease;
 }
 
 @keyframes fadeIn {
@@ -100,38 +102,56 @@ body {
 
 /* Close button */
 .close-btn {
-  position: sticky;
-  top: 5px;
-  right: 10px;
-  float: right;
+  position: absolute;
+  top: 15px;
+  right: 20px;
   font-size: 28px;
   cursor: pointer;
-  color: #e75480;
-  font-weight: bold;
-  background: none;
+  color: #333;
+  transition: color 0.3s;
 }
 
 .close-btn:hover {
-  color: #b22234;
+  color: #e75480;
 }
 
-/* Signature */
-.signature {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 1.4rem;
-  color: #c94f7c;
+/* Letter */
+.letter h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #e75480;
 }
 
-/* Responsive for mobile */
+.letter p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+.letter .signature {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #e75480;
+}
+
+/* Mobile view fixes */
 @media (max-width: 600px) {
   .modal-content {
-    font-size: 18px;
-    padding: 18px;
-    width: 90%;
+    padding: 15px;
   }
+
+  .letter h2 {
+    font-size: 1.6rem;
+  }
+
+  .letter p {
+    font-size: 1rem;
+  }
+
   .surprise-btn {
-    font-size: 20px;
-    padding: 12px 24px;
+    font-size: 1rem;
+    padding: 12px 20px;
   }
 }
