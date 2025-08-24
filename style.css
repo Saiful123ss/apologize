@@ -1,161 +1,130 @@
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #ffb6c1, #ffd6e0); /* soft pink fade */
-  color: #fff;
+  padding: 0;
+  font-family: 'Dancing Script', cursive;
+  background: #ffb6c1;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  text-align: center;
   overflow: hidden;
-  position: relative;
 }
 
-/* Floating fading hearts (sad vibe, slower) */
-body::before {
-  content: "💔 💕 💗 💔 💞 💕 💘";
-  position: fixed;
-  top: -50px;
-  left: 0;
-  width: 100%;
-  font-size: 2rem;
-  text-align: center;
-  animation: floatHearts 15s linear infinite;
-  opacity: 0.4;
-  pointer-events: none;
-}
-body::after {
-  content: "💔 💕 💗 💔 💞 💕 💘";
-  position: fixed;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  font-size: 1.5rem;
-  text-align: center;
-  animation: floatHearts 20s linear infinite;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-@keyframes floatHearts {
-  0% { transform: translateY(0); opacity: 0.5; }
-  100% { transform: translateY(120vh); opacity: 0; }
-}
-
-.title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #fff;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
-}
-
-.card {
-  background: rgba(255,255,255,0.9);
-  color: #333;
-  border-radius: 15px;
-  padding: 20px;
-  max-width: 90%;
-  width: 350px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.card p {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.3rem;
-  line-height: 1.5;
-}
-
-button {
-  margin-top: 15px;
-  background: #c94f7c; /* darker pink (sad vibe) */
-  border: none;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border-radius: 25px;
-  color: #fff;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  box-shadow: 0 5px 15px rgba(201,79,124,0.5);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(201,79,124,0.7);
-}
-
-.overlay {
+/* Floating hearts */
+.hearts {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(50,0,30,0.8); /* darker, sad overlay */
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(to bottom, #ffc1cc, #ffdde1);
+}
+
+.heart {
+  position: absolute;
+  color: rgba(255, 105, 180, 0.7);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Surprise button */
+.surprise-btn {
+  padding: 15px 30px;
+  font-size: 24px;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  background: #e75480;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.surprise-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Modal */
+.surprise-modal {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  z-index: 1000;
   padding: 20px;
-  box-sizing: border-box;
 }
 
-.overlay.show {
-  display: flex;
-}
-
-.letter {
-  background: rgba(255,255,255,0.95);
+.modal-content {
+  background: #fff0f5;
   padding: 25px;
   border-radius: 15px;
-  text-align: left;
-  width: 100%;
-  max-width: 400px;
-  color: #333;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  animation: fadeIn 1.5s ease forwards;
-  overflow-y: auto;
-  max-height: 80vh;
-}
-
-.letter h2 {
-  font-family: 'Dancing Script', cursive;
-  color: #c94f7c;
-  margin-bottom: 10px;
-  font-size: 1.8rem;
   text-align: center;
+  max-width: 500px;
+  width: 100%;
+  font-size: 20px;
+  color: #333;
+  border: 2px solid #e75480;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.6;
+  animation: fadeIn 1s ease;
+  position: relative;
 }
 
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.closeBtn {
-  margin-top: 20px;
-  background: #c94f7c;
-  color: #fff;
-  font-size: 1.2rem;
-  padding: 12px 25px;
-  border-radius: 30px;
-  box-shadow: 0 5px 15px rgba(201,79,124,0.5);
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
   cursor: pointer;
+  color: #e75480;
+  font-weight: bold;
 }
 
+.close-btn:hover {
+  color: #b22234;
+}
+
+/* Signature */
+.signature {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #c94f7c;
+}
+
+/* Responsive for mobile */
 @media (max-width: 600px) {
-  .title {
-    font-size: 2rem;
-  }
-  .card p {
-    font-size: 1.1rem;
-  }
-  .letter {
-    font-size: 1rem;
+  .modal-content {
+    font-size: 18px;
     padding: 20px;
-    max-height: 75vh;
+  }
+  .surprise-btn {
+    font-size: 20px;
+    padding: 12px 24px;
   }
 }
