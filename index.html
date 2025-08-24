@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgive Me, My Love 💌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Background Canvas -->
+  <canvas id="hearts-bg"></canvas>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h1 class="title">I’m Sorry, My Love 💖</h1>
+
+    <!-- Her Photo -->
+    <div class="photo-frame">
+      <img src="her-photo.jpg" alt="Her Photo" />
+    </div>
+
+    <!-- Typewriter Letter -->
+    <p class="letter" id="apology-text"></p>
+
+    <!-- Promises Checklist -->
+    <div class="promises">
+      <h2>My Promises to You ✨</h2>
+      <ul id="promise-list">
+        <li><input type="checkbox"> I’ll listen more carefully</li>
+        <li><input type="checkbox"> I’ll respect your feelings</li>
+        <li><input type="checkbox"> I’ll never stop choosing you</li>
+      </ul>
+      <div class="progress">
+        Progress: <span id="progress-count">0%</span>
+      </div>
+    </div>
+
+    <!-- Memories Carousel -->
+    <div class="carousel">
+      <h2>Our Memories 📸</h2>
+      <div class="slides">
+        <img src="memory1.jpg" alt="Memory 1" />
+        <img src="memory2.jpg" alt="Memory 2" />
+        <img src="memory3.jpg" alt="Memory 3" />
+      </div>
+    </div>
+
+    <!-- Music Toggle -->
+    <button id="music-toggle">🎵 Play Music</button>
+  </div>
+
+  <audio id="bg-music" src="music.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

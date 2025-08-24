@@ -1,0 +1,103 @@
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fdf6f9;
+  color: #333;
+  overflow-x: hidden;
+}
+
+canvas#hearts-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #e6397b;
+}
+
+.photo-frame {
+  margin: 1rem auto;
+  border: 6px solid #e6397b;
+  border-radius: 20px;
+  width: 250px; height: 250px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.letter {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.promises {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  margin: 2rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.promises ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+.promises li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+.progress {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #e6397b;
+}
+
+.carousel {
+  margin: 2rem 0;
+}
+.carousel .slides {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.carousel img {
+  width: 200px; height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+#music-toggle {
+  background: #e6397b;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#music-toggle:hover {
+  background: #c52860;
+}
