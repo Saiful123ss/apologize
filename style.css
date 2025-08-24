@@ -1,137 +1,137 @@
-/* Background with cute pink gradient + floating hearts */
 body {
   margin: 0;
-  font-family: 'Dancing Script', cursive, sans-serif;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  padding: 0;
+  font-family: 'Dancing Script', cursive;
+  background: #ffb6c1;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   overflow: hidden;
 }
 
-/* Floating hearts background */
-body::before {
-  content: "💔💕💞💔💖💘💝";
-  position: absolute;
-  top: 20px;
+/* Floating hearts */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  text-align: center;
-  font-size: 24px;
-  animation: floatHearts 6s infinite linear;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background: linear-gradient(to bottom, #ffc1cc, #ffdde1);
 }
 
-@keyframes floatHearts {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+.heart {
+  position: absolute;
+  color: rgba(255, 105, 180, 0.7);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
 }
 
 /* Surprise button */
 .surprise-btn {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #e75480;
+  padding: 15px 30px;
+  font-size: 24px;
+  font-family: 'Dancing Script', cursive;
   color: white;
+  background: #e75480;
   border: none;
-  border-radius: 30px;
-  padding: 14px 28px;
-  font-size: 18px;
-  font-weight: bold;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  position: relative;
 }
 
 .surprise-btn:hover {
-  transform: translateY(-50%) scale(1.1);
-  background: #ff4d94;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Modal overlay */
-.modal {
+/* Modal */
+.surprise-modal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
   padding: 20px;
-  box-sizing: border-box;
 }
 
-/* Modal content */
 .modal-content {
-  background: #fff;
-  border-radius: 20px;
+  background: #fff0f5;
   padding: 25px;
+  border-radius: 15px;
+  text-align: center;
   max-width: 500px;
   width: 100%;
-  text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  font-size: 20px;
+  color: #333;
+  border: 2px solid #e75480;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.6;
+  animation: fadeIn 1s ease;
   position: relative;
-  animation: fadeIn 0.5s ease;
-  overflow-y: auto;
-  max-height: 80vh; /* 🔥 makes text scrollable on mobile */
+  max-height: 90vh;   /* fit into mobile */
+  overflow-y: auto;   /* scroll if text too long */
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* Close button */
 .close-btn {
-  position: absolute;
-  top: 12px;
-  right: 20px;
+  position: sticky;
+  top: 5px;
+  right: 10px;
+  float: right;
   font-size: 28px;
-  font-weight: bold;
-  color: #555;
   cursor: pointer;
+  color: #e75480;
+  font-weight: bold;
+  background: none;
 }
 
 .close-btn:hover {
-  color: #e75480;
+  color: #b22234;
 }
 
-/* Title */
-.modal-content h2 {
-  font-size: 26px;
-  color: #e75480;
-  margin-bottom: 15px;
+/* Signature */
+.signature {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #c94f7c;
 }
 
-/* Message */
-.modal-content p {
-  font-size: 18px;
-  color: #444;
-  line-height: 1.6;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Responsive Fix for Mobile */
+/* Responsive for mobile */
 @media (max-width: 600px) {
   .modal-content {
-    padding: 20px;
-    font-size: 16px;
-    max-height: 85vh; /* 🔥 extra height for small screens */
-  }
-  .modal-content h2 {
-    font-size: 22px;
-  }
-  .modal-content p {
-    font-size: 16px;
+    font-size: 18px;
+    padding: 18px;
+    width: 90%;
   }
   .surprise-btn {
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    padding: 12px 22px;
-    font-size: 16px;
+    font-size: 20px;
+    padding: 12px 24px;
   }
 }
