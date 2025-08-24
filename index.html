@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apology Surprise</title>
+  <title>Apology for You ❤️</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -14,17 +14,24 @@
 <body>
   <div class="card">
     <h1 class="card-title">I’m Sorry ❤️</h1>
-    <p class="card-message">
-      No matter what happens,<br>
-      I just want you in my life.<br>
-      Please stay with me —<br>
-      as my partner or at least as my friend.
-    </p>
-    <button class="surprise-btn">Surprise 💖</button>
+    <p class="card-message" id="typing-text"></p>
+    <button class="surprise-btn">Click for a Surprise 💌</button>
   </div>
 
-  <!-- Floating Hearts -->
+  <!-- Floating hearts -->
   <div id="hearts-container"></div>
+
+  <!-- Hidden Popup -->
+  <div id="popup">
+    <div class="popup-content">
+      <h2>💖 Please Stay 💖</h2>
+      <p>No matter what happens...<br>
+         I want you to stay in my life.<br>
+         As my partner ❤️ or as my friend...<br>
+         You mean the world to me 🌎💫</p>
+      <button id="close-popup">Close ✨</button>
+    </div>
+  </div>
 
   <!-- JS -->
   <script src="script.js"></script>
