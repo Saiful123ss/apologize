@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #2c5364, #1c1c3c);
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -11,12 +11,37 @@ body {
   overflow-x: hidden;
 }
 
+/* Floating pastel hearts background */
+.hearts::before,
+.hearts::after {
+  content: "💖 💕 💗 💓 💞";
+  position: fixed;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+  animation: floatHearts 10s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.hearts::after {
+  animation-duration: 15s;
+  font-size: 1.5rem;
+  opacity: 0.4;
+}
+
+@keyframes floatHearts {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120vh); }
+}
+
 .title {
   font-family: 'Dancing Script', cursive;
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #ffccd5;
-  text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+  color: #ff4d6d;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.8);
 }
 
 .card {
@@ -61,7 +86,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.7);
   display: none;
   justify-content: center;
   align-items: center;
@@ -69,71 +94,37 @@ button:hover {
   z-index: 1000;
 }
 
-.envelope {
-  width: 300px;
-  height: 200px;
-  background: #ff4d6d;
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  animation: float 2s infinite alternate ease-in-out;
+.overlay.show {
+  display: flex;
 }
 
 .letter {
-  position: absolute;
-  top: -250px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 15px;
   text-align: left;
-  font-size: 1rem;
-  opacity: 0;
-  transition: all 1s ease;
-}
-
-.overlay.show .letter {
-  top: 20px;
-  opacity: 1;
+  width: 85%;
+  max-width: 350px;
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  animation: popUp 0.8s ease forwards;
 }
 
 .letter h2 {
   font-family: 'Dancing Script', cursive;
   color: #ff4d6d;
   margin-bottom: 10px;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+@keyframes popUp {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 .closeBtn {
   margin-top: 20px;
-  background: #fff;
-  color: #ff4d6d;
-}
-
-@keyframes float {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
-}
-
-/* Mobile Responsive Fix */
-@media (max-width: 600px) {
-  .title {
-    font-size: 2rem;
-  }
-
-  .card {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .card p {
-    font-size: 1.1rem;
-  }
-
-  .letter {
-    width: 85%;
-    font-size: 1rem;
-  }
-}
+  background: #ff4d6d;
+  color
