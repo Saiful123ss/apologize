@@ -3,44 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forgive Me</title>
+  <title>Apology & Promise</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="bgCanvas"></canvas>
-
   <div class="container">
-    <h1>💌 My Apology to You</h1>
+    <h1>I'm Sorry 💔</h1>
+    <p>I made mistakes, but I don’t want to lose you. Please, stay with me — as my love or as my friend.</p>
+    
+    <button id="surpriseBtn">Surprise 🎁</button>
+  </div>
 
-    <!-- Typewriter Apology Letter -->
-    <div id="letter" class="typewriter"></div>
-
-    <!-- Promises Checklist -->
-    <section class="promises">
-      <h2>My Promises to You</h2>
-      <ul id="promiseList">
-        <li><input type="checkbox"> I’ll respect your space and feelings</li>
-        <li><input type="checkbox"> I’ll communicate better and honestly</li>
-        <li><input type="checkbox"> I’ll support you no matter what</li>
-      </ul>
-    </section>
-
-    <!-- Closing Message -->
-    <div class="closing">
-      <p>
-        I know I’ve made mistakes, but I truly care about you.  
-        Please… stay with me — if not as a partner, then at least as a friend.  
-        You mean so much to me, and I don’t want to lose you. 💖
-      </p>
-    </div>
-
-    <!-- Buttons -->
-    <div class="buttons">
-      <button id="musicToggle">🎵 Toggle Music</button>
-      <button id="confettiBtn">🎉 Surprise</button>
+  <!-- Surprise Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="envelope" id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>No matter what happens, I just want you in my life ❤️</p>
+        <p>As my partner, or at least as my friend…</p>
+        <p>Please stay with me.</p>
+      </div>
     </div>
   </div>
 
+  <!-- Floating hearts container -->
+  <div id="hearts-container"></div>
+
+  <audio id="bg-music" src="music.mp3"></audio>
   <script src="script.js"></script>
 </body>
 </html>
