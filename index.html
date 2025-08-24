@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apology for You ❤️</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <title>My Apology to You ❤️</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="card">
-    <h1 class="card-title">I’m Sorry ❤️</h1>
-    <p class="card-message" id="typing-text"></p>
-    <button class="surprise-btn">Click for a Surprise 💌</button>
-  </div>
-
-  <!-- Floating hearts -->
-  <div id="hearts-container"></div>
-
-  <!-- Hidden Popup -->
-  <div id="popup">
-    <div class="popup-content">
-      <h2>💖 Please Stay 💖</h2>
-      <p>No matter what happens...<br>
-         I want you to stay in my life.<br>
-         As my partner ❤️ or as my friend...<br>
-         You mean the world to me 🌎💫</p>
-      <button id="close-popup">Close ✨</button>
+  <div class="container">
+    <h1 class="title">I’m Sorry ❤️</h1>
+    <div class="card">
+      <p>No matter what happens, I just want you in my life — as my love, or at least as my friend. Please stay with me.</p>
+      <button id="surpriseBtn">Surprise 💌</button>
     </div>
   </div>
 
-  <!-- JS -->
+  <div class="overlay" id="overlay">
+    <div class="envelope">
+      <div class="letter">
+        <h2>To You 💖</h2>
+        <p>
+          I’m sorry for everything.  
+          What I really wish is simple:  
+          Stay with me — as my partner, or as my best friend.  
+          You are too precious to lose. 💕
+        </p>
+      </div>
+    </div>
+    <button class="closeBtn" id="closeBtn">Close ✨</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
