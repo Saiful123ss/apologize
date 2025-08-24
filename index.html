@@ -3,33 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apology & Promise</title>
+  <title>Apology Surprise</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>I'm Sorry 💔</h1>
-    <p>I made mistakes, but I don’t want to lose you. Please, stay with me — as my love or as my friend.</p>
-    
-    <button id="surpriseBtn">Surprise 🎁</button>
+  <div class="card">
+    <h1 class="card-title">I’m Sorry ❤️</h1>
+    <p class="card-message">
+      No matter what happens,<br>
+      I just want you in my life.<br>
+      Please stay with me —<br>
+      as my partner or at least as my friend.
+    </p>
+    <button class="surprise-btn">Surprise 💖</button>
   </div>
 
-  <!-- Surprise Overlay -->
-  <div class="overlay" id="overlay">
-    <div class="envelope" id="envelope">
-      <div class="flap"></div>
-      <div class="letter">
-        <p>No matter what happens, I just want you in my life ❤️</p>
-        <p>As my partner, or at least as my friend…</p>
-        <p>Please stay with me.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Floating hearts container -->
+  <!-- Floating Hearts -->
   <div id="hearts-container"></div>
 
-  <audio id="bg-music" src="music.mp3"></audio>
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,23 +1,22 @@
-const surpriseBtn = document.getElementById("surpriseBtn");
-const overlay = document.getElementById("overlay");
-const music = document.getElementById("bg-music");
-const heartsContainer = document.getElementById("hearts-container");
+const button = document.querySelector(".surprise-btn");
+const container = document.getElementById("hearts-container");
 
-surpriseBtn.addEventListener("click", () => {
-  overlay.style.display = "flex";
-  music.play();
-
-  // generate floating hearts
-  setInterval(() => {
-    const heart = document.createElement("div");
+button.addEventListener("click", () => {
+  // Create floating hearts
+  for (let i = 0; i < 15; i++) {
+    let heart = document.createElement("div");
     heart.classList.add("heart");
-    heart.innerText = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 20 + "px";
-    heartsContainer.appendChild(heart);
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    container.appendChild(heart);
 
     setTimeout(() => {
       heart.remove();
     }, 5000);
-  }, 600);
+  }
+
+  // Small vibration effect on button
+  button.style.transform = "scale(1.2)";
+  setTimeout(() => button.style.transform = "scale(1)", 300);
 });

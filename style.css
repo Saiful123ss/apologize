@@ -1,108 +1,71 @@
+/* Background */
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #2c5364, #1c1c1c);
+  font-family: 'Poppins', sans-serif;
   overflow: hidden;
 }
 
-.container {
-  text-align: center;
-  z-index: 1;
-}
-
-button {
-  background: #ff4b5c;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #ff1e40;
-}
-
-/* Overlay */
-.overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-/* Envelope */
-.envelope {
-  position: relative;
-  width: 300px;
-  height: 200px;
+/* Card */
+.card {
   background: #fff;
-  border: 2px solid #ff4b5c;
-  border-radius: 8px;
-  overflow: hidden;
-  animation: popIn 0.8s ease forwards;
-}
-
-.flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: #ff4b5c;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top;
-  animation: flapOpen 2s ease forwards 1s;
-}
-
-.letter {
-  position: absolute;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  padding: 20px;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   text-align: center;
-  font-size: 16px;
-  line-height: 1.5;
+  position: relative;
+  max-width: 400px;
+}
+
+/* Title */
+.card-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #e63946;
+  margin-bottom: 15px;
+}
+
+/* Message */
+.card-message {
+  font-size: 1.2rem;
   color: #333;
-  animation: letterUp 2s ease forwards 2.5s;
+  line-height: 1.6;
+  margin-bottom: 25px;
 }
 
-@keyframes popIn {
-  from { transform: scale(0); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* Surprise Button */
+.surprise-btn {
+  background: #e63946;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Dancing Script', cursive;
 }
 
-@keyframes flapOpen {
-  to { transform: rotateX(180deg); }
-}
-
-@keyframes letterUp {
-  to { bottom: 0; }
+.surprise-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(230, 57, 70, 0.5);
 }
 
 /* Floating hearts */
 .heart {
-  position: fixed;
-  bottom: -20px;
-  font-size: 24px;
+  position: absolute;
+  color: #e63946;
+  font-size: 20px;
   animation: floatUp 5s linear infinite;
-  color: #ff4b5c;
+  opacity: 0.7;
 }
 
 @keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-800px); opacity: 0; }
 }
