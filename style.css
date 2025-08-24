@@ -1,6 +1,12 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Background */
 body {
-  margin: 0;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -8,33 +14,34 @@ body {
   background: linear-gradient(135deg, #0f2027, #2c5364, #1c1c1c);
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
+  padding: 20px;
 }
 
 /* Card */
 .card {
   background: #fff;
-  padding: 30px 40px;
+  padding: 25px 20px;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   text-align: center;
-  position: relative;
+  width: 100%;
   max-width: 400px;
 }
 
 /* Title */
 .card-title {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: #e63946;
   margin-bottom: 15px;
 }
 
 /* Message */
 .card-message {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #333;
   line-height: 1.6;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 /* Surprise Button */
@@ -42,17 +49,18 @@ body {
   background: #e63946;
   border: none;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 12px 25px;
+  padding: 12px 20px;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   font-family: 'Dancing Script', cursive;
+  width: 100%;
 }
 
 .surprise-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(230, 57, 70, 0.5);
 }
 
@@ -61,11 +69,28 @@ body {
   position: absolute;
   color: #e63946;
   font-size: 20px;
-  animation: floatUp 5s linear infinite;
+  animation: floatUp 5s linear forwards;
   opacity: 0.7;
+  pointer-events: none;
 }
 
 @keyframes floatUp {
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(-800px); opacity: 0; }
+}
+
+/* Mobile friendly */
+@media (max-width: 480px) {
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .card-message {
+    font-size: 1rem;
+  }
+
+  .surprise-btn {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
 }

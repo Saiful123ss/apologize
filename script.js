@@ -16,7 +16,7 @@ button.addEventListener("click", () => {
     }, 5000);
   }
 
-  // Small vibration effect on button
-  button.style.transform = "scale(1.2)";
+  // Small bounce effect on button
+  button.style.transform = "scale(1.15)";
   setTimeout(() => button.style.transform = "scale(1)", 300);
 });
