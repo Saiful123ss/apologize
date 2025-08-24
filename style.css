@@ -52,6 +52,8 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+  position: relative;
 }
 
 .surprise-btn:hover {
@@ -87,6 +89,8 @@ body {
   line-height: 1.6;
   animation: fadeIn 1s ease;
   position: relative;
+  max-height: 90vh;   /* fit into mobile */
+  overflow-y: auto;   /* scroll if text too long */
 }
 
 @keyframes fadeIn {
@@ -96,13 +100,15 @@ body {
 
 /* Close button */
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  position: sticky;
+  top: 5px;
+  right: 10px;
+  float: right;
   font-size: 28px;
   cursor: pointer;
   color: #e75480;
   font-weight: bold;
+  background: none;
 }
 
 .close-btn:hover {
@@ -112,19 +118,4 @@ body {
 /* Signature */
 .signature {
   margin-top: 15px;
-  text-align: center;
-  font-size: 1.4rem;
-  color: #c94f7c;
-}
-
-/* Responsive for mobile */
-@media (max-width: 600px) {
-  .modal-content {
-    font-size: 18px;
-    padding: 20px;
-  }
-  .surprise-btn {
-    font-size: 20px;
-    padding: 12px 24px;
-  }
-}
+  text-ali
